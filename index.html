@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="first-container">
+    <div class="container">
+        <h1>Generate a <br><span>Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="password" placeholder="Password" readonly>
+            <img src="images/copy.png" class="copy-button" id="copyButton" alt="Copy">
+        </div>
+        <div class="button-container">
+            <button class="button-generate-pass">
+                <img src="images/generate.png" alt="Generate">Generate Password
+            </button>
+            <button class="button-clear-passwords">Clear Latest Passwords</button>
+        </div></div>
+    
+    
+    <div class="options-container">
+        <h2>Options</h2>
+        <label for="passwordLength">Length:</label>
+        <input type="number" id="passwordLength" placeholder="Enter length of the password" value="12" min="8" max="30">
+    
+        <div class="checkbox-group">
+            <label for="uppercase">
+                <input type="checkbox" id="uppercase" checked> Upper Case Characters
+            </label>
+            <label for="lowercase">
+                <input type="checkbox" id="lowercase" checked> Lower Case Characters
+            </label>
+            <label for="special">
+                <input type="checkbox" id="special" checked> Special Characters
+            </label>
+            <label for="numbers">
+                <input type="checkbox" id="numbers" checked> Numbers
+            </label>
+        </div>
+    </div></div>
+    
+    
+    <div class="password-container">
+        <h2>Latest Passwords</h2>
+        <div id="passwordList"></div>
+    </div>
+    <div class="message" id="copyMessage">
+        <span class="closebtn">&times;</span>
+        <strong>You copied the password!</strong>
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="error-message" id="errorMessage">
+        <span class="closebtn">&times;</span>
+        <strong></strong>
+        <div class="error-progress-bar" id="errorProgressBar"></div>
+    </div>
+    <script src="main.js" type="module"></script>
+    <script src="messagesScript.js" type="module"></script>
+</body>
+</html>

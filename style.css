@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #002339, #004b6b);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: #012a4a;
+    color: #fff;
+    border-radius: 15px;
+    padding: 40px 35px;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.container h1 span {
+    color: #00b4d8;
+    border-bottom: 3px solid #00b4d8;
+    padding-bottom: 5px;
+}
+
+.display {
+    background: #fff;
+    color: #333;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.display input {
+    border: none;
+    font-size: 1.2rem;
+    flex: 1;
+    margin-right: 10px;
+    padding: 5px;
+    background: transparent;
+    outline: none;
+    color: #333;
+}
+
+.display img {
+    width: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.display img:hover {
+    transform: scale(1.1);
+}
+
+.container button {
+    margin-top: 0;
+    background: #00b4d8;
+    color: #fff;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+}
+
+.container button:hover {
+    background: #0077b6;
+}
+
+.password-container {
+    margin-top: 30px;
+    background: #f0f0f0;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    margin-left: 40px;
+}
+
+.password-container h2 {
+    margin-bottom: 10px;
+    color: #012a4a;
+    text-align: center;
+}
+
+.password-item {
+    background: #fff;
+    color: #333;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.password-item input {
+    border: none;
+    font-size: 1.2rem;
+    padding: 5px;
+    background: transparent;
+    outline: none;
+    color: #333;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.password-item img {
+    width: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.password-item img:hover {
+    transform: scale(1.1);
+}
+
+#passwordList {
+    margin-top: 10px;
+}
+
+.message, .error-message {
+    display: none;
+    color: white;
+    width: 350px;
+    height: auto;
+    position: fixed;
+    padding: 20px 25px;
+    right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    text-align: center;
+    justify-content: center;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.message {
+    background-color: #1b4332;
+    bottom: 20px;
+    z-index: 3;
+}
+
+.error-message {
+    background-color: #b22222;
+    bottom: 20px;
+    z-index: 3;
+}
+
+.error-message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.error-progress-bar {
+    height: 5px;
+    background-color: #dc3545;
+    width: 0;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.error-progress-bar.animate {
+    animation: progressBar 10s linear forwards;
+}
+
+.message.show, .error-message.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.message.fade-out, .error-message.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.closebtn {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.closebtn:hover {
+    color: #ccc;
+}
+
+.message img, .error-message img {
+    height: 40px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.progress-bar {
+    height: 5px;
+    background-color: #74c69d;
+    width: 0;
+    position: absolute;
+    border-radius: 5px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+}
+
+.progress-bar.animate, .error-progress-bar.animate {
+    animation: progressBar 10s linear forwards;
+}
+
+@keyframes progressBar {
+    from { width: 0%; }
+    to { width: 90%; }
+}
+
+#passwordList table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#passwordList th, #passwordList td {
+    padding: 12px 20px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#passwordList th {
+    background-color: #f4f4f4;
+}
+
+#passwordList tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#passwordList tr:hover {
+    background-color: #f1f1f1;
+}
+
+.copy-button {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.button-clear-passwords {
+    margin-top: 20px;
+    background-color: #FF4D4D;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.button-clear-passwords:hover {
+    background-color: #e04343;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.options-container {
+    background: #012a4a;
+    color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-top: 20px;
+    text-align: left;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.options-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.options-container label {
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.options-container input[type="number"] {
+    padding: 10px;
+    width: 40%;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.options-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.options-container .checkbox-label {
+    font-size: 1.1rem;
+    margin-left: 5px;
+}
+
+.options-container .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.delete-button {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
